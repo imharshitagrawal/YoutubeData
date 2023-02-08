@@ -13,7 +13,7 @@ Key pointers:
 
 Follow these instructions to replicate the flow:
 
-1. Make sure Docker, Node.Js are installed on your system.
+1. Make sure Docker is installed on your system.
 2. Go to https://developers.google.com/youtube/v3/getting-started and follow the instructions to create API key and enable YouTube Data API v3
 3. Download this git repository and open the folder on your computer.
 4. Create .env file in root of the project directory and add the following in it. Make sure to replace the API key with the key generated in above step.
@@ -28,8 +28,8 @@ Follow these instructions to replicate the flow:
    SEARCH_QUERY = Football\
    DB_REFRESH_INTERVAL = 60000
 
-5. Run `docker-compose up` command and wait for the images to build and containers to spin up. A schema with name `ytvideos` will be created in the database. Once you see `Server started at port 8080`, the server will start calling Youtube API continously every 100 seconds.
+5. Run `docker-compose up` command and wait for the images to build and containers to spin up. A schema with name `ytvideos` will be created in the postgres container. Once you see `Server started at port 8080`, the server will start calling Youtube API continously every 100 seconds.
 
-6. Go to http://localhost:8080/api/v1/youtubeData?page=2&limit=10 to see the date stored in Postgres DB. Feel free to play with page and limit. `limit` corresponds to maximum number of results on a page.
+6. Go to http://localhost:8080/api/v1/youtubeData?page=2&limit=10 to see the date stored in Postgres. Feel free to play with page and limit. `limit` corresponds to maximum number of results on a page.
 
 7. Go to http://localhost:8080/api/v1/search?title=xyz&description=abc. Change the query parameters title and description to view desired results.
